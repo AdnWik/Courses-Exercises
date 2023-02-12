@@ -1,1 +1,3 @@
 /Courses-Exercises.code-workspace
+*.db
+SQL Bootcamp/Learn Project/__pycache__
