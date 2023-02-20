@@ -16,3 +16,11 @@ VALUES ('CDR', 'CD PROJEKT', 260),
        ('CFG', 'Creative Froge', 37);
 
 SELECT * FROM stock_market;
+
+SELECT *, rowid FROM stock_market;
+SELECT *, _rowid_ FROM stock_market;
+SELECT *, oid FROM stock_market;
+
+SELECT * FROM stock_market WHERE rowid = 5;
+
+EXPLAIN QUERY PLAN SELECT * FROM stock_market WHERE rowid = 5;
