@@ -13,16 +13,16 @@ while True:
         break
 
     if choice == 1:
-        function.add_data()
+        function.add_task()
 
     if choice == 2:
         function.show_all_task()
 
     if choice == 3:
-        pass
+        function.update_task()
 
     if choice == 4:
-        pass
+        function.delete_task()
 
     if choice == 919:
         function.delete_database()
