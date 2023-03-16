@@ -37,6 +37,5 @@ VALUES (12, 'CMCSA', 'COMCAST CORP', '2021-02-03', 50.47, 'Consumer Services', N
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-SELECT Sector, FullName, Price FROM Stock
-ORDER BY Sector DESC
-LIMIT 5;
+SELECT * FROM Stock
+LIMIT 5 OFFSET 3;
