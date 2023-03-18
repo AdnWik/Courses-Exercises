@@ -1,5 +1,5 @@
 /Courses-Exercises.code-workspace
-/*.db
 *.db
+*.sqlite3
 SQL Bootcamp/Learn Project/__pycache__
-/SQL Bootcamp/II/dbs/app.db
+
