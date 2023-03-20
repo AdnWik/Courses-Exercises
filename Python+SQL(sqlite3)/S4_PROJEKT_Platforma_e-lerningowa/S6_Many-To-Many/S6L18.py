@@ -51,7 +51,7 @@ VALUES
     "Akademia Programowania"
   );''')
 
-with open('Python+SQL(sqlite3)\S4_PROJEKT_Platforma_e-lerningowa\S6_Many-To-Many\S6L17.sql', 'r', encoding='utf-8') as file:
+with open('Python+SQL(sqlite3)\S4_PROJEKT_Platforma_e-lerningowa\S6_Many-To-Many\S6L18.sql', 'r', encoding='utf-8') as file:
     sql = file.read()
 
 cur.executescript(sql)
@@ -60,15 +60,29 @@ cur.execute('''DROP INDEX IF EXISTS "esmartdata_course_instructor_id_idx"''')
 cur.execute('''CREATE INDEX IF NOT EXISTS "esmartdata_course_instructor_id_idx" 
 ON "esmartdata_course" ("instructor_id")''')
 
-cur.executescript("""
-    DROP TABLE IF EXISTS esmartdata_learningpath;
+cur.executescript('''DROP TABLE IF EXISTS "esmartdata_learningpath";
+CREATE TABLE IF NOT EXISTS "esmartdata_learningpath" (
+  "id" integer NOT NULL,
+  "title" text NOT NULL,
+  "subtitle" text NOT NULL,
+  "url" text NOT NULL,
+  PRIMARY KEY("id" AUTOINCREMENT)
+);''')
 
-    CREATE TABLE esmartdata_learningpath (
-        id          INTEGER NOT NULL,
-        title       TEXT    NOT NULL,
-        subtitle    TEXT    NOT NULL,
-        url         TEXT    NOT NULL,
-        PRIMARY KEY (id AUTOINCREMENT)
+cur.executescript("""
+    DROP TABLE IF EXISTS esmartdata_learningpath_courses;
+
+    CREATE TABLE esmartdata_learningpath_courses (
+        id              INTEGER NOT NULL,
+        learningpath_id INTEGER NOT NULL,
+        course_id       INTEGER NOT NULL,
+        PRIMARY KEY (id AUTOINCREMENT),
+        FOREIGN KEY (learningpath_id)
+        REFERENCES esmartdata_learningpath(id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (course_id)
+        REFERENCES esmartdata_course(id)
+        ON DELETE CASCADE ON UPDATE CASCADE
         );
 """)
 
