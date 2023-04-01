@@ -1,4 +1,4 @@
-class TechStack():
+class TechStack:
 
     def __init__(self, tech_names) -> None:
         self._tech_names = tech_names

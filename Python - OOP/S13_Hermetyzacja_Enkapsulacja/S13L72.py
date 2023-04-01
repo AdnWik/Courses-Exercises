@@ -1,20 +1,20 @@
-class Game():
+class Game:
 
-    def __init__(self, level) -> None:
-        self.level = level
+    def __init__(self, level = None) -> None:
+        self.level = level if level else 0
 
     @property
     def level(self):
         return self._level
     
     @level.setter
-    def level(self, value = 0):
+    def level(self, value):
         if not isinstance(value, int):
             raise TypeError('The value of level must be of type int.')
         
         if value < 0:
             self._level = 0
-        if value > 100:
+        elif value > 100:
             self._level = 100
         else:
             self._level = value
