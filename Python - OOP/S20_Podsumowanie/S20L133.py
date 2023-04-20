@@ -10,4 +10,3 @@ class Note:
 note1 = Note('My first note')
 note2 = Note('My second note')
 
-print(note1.creation_time)
