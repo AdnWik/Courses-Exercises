@@ -24,3 +24,4 @@ for row in cur.fetchall():
 
 conn.commit()
 conn.close()
+
